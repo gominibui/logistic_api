@@ -6,7 +6,7 @@ from orders.models import Order
 
 class OrderTests(APITestCase):
     def setUp(self):
-        self.url = reverse('order-list-create')
+        self.url = reverse("order-list-create")
         self.order_data = {
             "description": "Test Order 1",
             "status": "pending"
@@ -35,13 +35,13 @@ class OrderTests(APITestCase):
 
     def test_get_order_detail(self):
         order = Order.objects.create(description="Order for details", status="in_progress")
-        response = self.client.get(reverse('order-detail', kwargs={'pk': order.pk}))
+        response = self.client.get(reverse("order-detail", kwargs={"pk": order.pk}))
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(response.data["description"], order.description)
         self.assertEqual(response.data["status"], order.status)
 
     def test_delete_order(self):
         order = Order.objects.create(description="Order to delete", status="completed")
-        response = self.client.delete(reverse('order-detail', kwargs={'pk': order.pk}))
+        response = self.client.delete(reverse("order-detail", kwargs={"pk": order.pk}))
         self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
         self.assertEqual(Order.objects.count(), 0)
