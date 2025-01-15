@@ -69,4 +69,4 @@ Before you begin, ensure you have the following installed:
 
 ## Contact
 
-For any inquiries or issues, please open an issue in the repository or contact the maintainer at [your-email@example.com].
+For any inquiries or issues, please open an issue in the repository or contact the maintainer at [denislichka@gmail.com].
